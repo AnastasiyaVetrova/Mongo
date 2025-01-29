@@ -1,0 +1,39 @@
+jwt:
+  secret: 357638792F423F4428472B4B6250655368566D597133743677397A2443264629
+
+auth:
+  default_login: admin
+  default_password: admin
+  refresh_token_life_seconds: 60
+  access_token_life_seconds: 1
+
+spring:
+  datasource:
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://${DB_HOST}/${DB_NAME}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.yaml
+  main.banner-mode: off
+  data:
+    mongodb:
+#      authentication-database: ${MONGO_AUTHENTICATION}
+#      username: ${MONGO_USERNAME}
+#      password: ${MONGO_PASSWORD}
+      database: ${MONGO_DATABASE}
+      uri: mongodb://localhost:27017/puppet_mongo_db
+
+logging:
+  level:
+    root: error
+    com.aston.frontendpracticeservice: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"
+  logback:
+    rollingpolicy:
+      max-history: 30
+      max-file-size: 15GB

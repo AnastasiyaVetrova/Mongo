@@ -1,0 +1,53 @@
+services:
+  db:
+    ports:
+      - "5432:5432"
+    image: postgres:latest
+    container_name: puppet-local-db
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - a-tink-test
+    restart: no
+
+  mongodb:
+    image: mongo
+    container_name: puppet-local-mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+#      MONGO_INITDB_URI: ${MONGO_URI}
+#      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+#      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+#      MONGO_INITDB_AUTHENTICATION_DATABASE: ${MONGO_AUTHENTICATION}
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - a-tink-test
+    restart: no
+
+#  mongo-express:
+#    image: mongo-express
+#    container_name: mongo-express
+#    environment:
+#      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USERNAME}
+#      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
+#      ME_CONFIG_MONGODB_SERVER: puppet-local-mongo
+#      ME_CONFIG_MONGODB_AUTH_DATABASE: ${MONGO_AUTHENTICATION}
+#    ports:
+#      - "8081:8081"
+#    networks:
+#      - a-tink-test
+#    depends_on:
+#      - mongodb
+
+volumes:
+  mongo-data:
+
+networks:
+  a-tink-test:
+    external: false
+    driver: bridge
