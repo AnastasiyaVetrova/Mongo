@@ -21,12 +21,12 @@
 Проект пока не дописан, но некоторые сущности и классы уже созданы, они отмечены суффиксом 'Mongo'.
 
 ## ✨ Рекомендую посмотреть другие проекты:
-1. Rest - основа всего
-2. LF4J
-3. ELK
-4. Kafka
-5. Starter
-6. Kubernetes
+1. [Rest - основа всего](https://github.com/AnastasiyaVetrova/Rest)
+2. [SLF4J](https://github.com/AnastasiyaVetrova/SLF4J)
+3. [ELK](https://github.com/AnastasiyaVetrova/ELK)
+4. [Kafka](https://github.com/AnastasiyaVetrova/Kafka)
+5. [Starter](https://github.com/AnastasiyaVetrova/Starter)
+6. [Kubernetes](https://github.com/AnastasiyaVetrova/Kubernetes)
 
 ## 🤝 Контакты
 Если у вас есть вопросы или предложения, вы можете связаться со мной:
